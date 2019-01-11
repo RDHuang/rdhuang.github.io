@@ -1,136 +1,174 @@
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>压扁小鸟</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0, user-scalable=no"/>
-<meta name="description" content="你恨 flappy bird 吗?你每天晚上对着那个愚蠢的鸟做噩梦吗？ 压扁它们！.">
-<meta name="generator" content="DzzOffice.com" />
-<meta name="author" content="DzzOffice.com" />
-<meta property="og:description" content="你恨 flappy bird 吗?你每天晚上对着那个愚蠢的鸟做噩梦吗？ 压扁它们！.">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Squishy Bird">
-<meta property="og:site_name" content="Squishy Birds">
-<meta property="og:image" content="./src/wav/fbthumb.jpg">
-<meta name="viewport" content="user-scalable=no, initial-scale=0.5, width=610, height=1024">
-<link rel="image_src" href="./src/wav/fbthumb.jpg">
+<meta charset="UTF-8">
+<title>明人不说暗话</title>
 </head>
-<body style="margin: 0px; overflow: hidden;-moz-user-select: none;-webkit-user-select: none;user-select: none;"  >
-<div id="lgd" style="width: 300px; height: 64px; position: absolute; left: 533px; top: 301px; font-family: Verdana; font-size: 16px; font-weight: bold; text-align: center;">Loading...</div>
-<script type="text/javascript" src="./src/squishybird.js"></script>
-<div style="overflow: hidden; position: relative; width: 1366px; height: 620px;">
-  <canvas width="1366" height="620"></canvas>
-  <img src="./src/wav/pipe1.png" width="148" height="1664" style="position: absolute; left: 609px; top: -1533px; z-index: 420;"><img src="./src/wav/pipe2.png" width="148" height="1664" style="position: absolute; left: 609px; top: 400.9999999999999px; z-index: 420;">
-  <canvas width="1366" height="88" style="position: absolute; z-index: 31337; left: 0px; top: 532px;"></canvas>
-  <canvas width="1366" height="256" style="position: absolute; z-index: 60; left: 0px; top: 276px;"></canvas>
-  <canvas width="1366" height="216" style="position: absolute; z-index: 61; left: 0px; top: 316px;"></canvas>
-  <img src="./src/wav/logo.png" style="position: absolute; opacity: 0; z-index: 42069; left: 370px; top: 174px; display: none;"><img src="./src/wav/gameover.png" style="position: absolute; opacity: 1; z-index: 42069; left: 370px; top: 93px; display: inline;"><img src="./src/wav/clicktostart.png" style="position: absolute; opacity: 0; z-index: 42070; left: 514px; top: 435px; display: none;">
-  <div style="width: 800px; height: 24px; position: absolute; text-align: center; font-family: Verdana; font-size: 12px; z-index: 87654; left: 283px; top: 592px; display: none;">这不是 flappy bird！只是个模仿 - www.dzzoffice.com</div>
-  <div style="width: 300px; height: 50px; position: absolute; text-align: center; font-family: Verdana; font-weight: bold; font-size: 30px; color: rgb(0, 0, 0); z-index: 88887; -webkit-user-select: none; left: 536px; top: 23px;">0</div>
-  <div style="width: 300px; height: 50px; position: absolute; text-align: center; font-family: Verdana; font-weight: bold; font-size: 30px; color: rgb(0, 0, 0); z-index: 88887; -webkit-user-select: none; left: 536px; top: 22px;">0</div>
-  <div style="width: 300px; height: 50px; position: absolute; text-align: center; font-family: Verdana; font-weight: bold; font-size: 30px; color: rgb(0, 0, 0); z-index: 88887; -webkit-user-select: none; left: 536px; top: 21px;">0</div>
-  <div style="width: 300px; height: 50px; position: absolute; text-align: center; font-family: Verdana; font-weight: bold; font-size: 30px; color: rgb(0, 0, 0); z-index: 88887; -webkit-user-select: none; left: 536px; top: 20px;">0</div>
-  <div style="width: 300px; height: 50px; position: absolute; text-align: center; font-family: Verdana; font-weight: bold; font-size: 30px; color: rgb(0, 0, 0); z-index: 88887; -webkit-user-select: none; left: 536px; top: 19px;">0</div>
-  <div style="width: 300px; height: 50px; position: absolute; text-align: center; font-family: Verdana; font-weight: bold; font-size: 30px; color: rgb(0, 0, 0); z-index: 88887; -webkit-user-select: none; left: 536px; top: 18px;">0</div>
-  <div style="width: 300px; height: 50px; position: absolute; text-align: center; font-family: Verdana; font-weight: bold; font-size: 30px; color: rgb(0, 0, 0); z-index: 88887; -webkit-user-select: none; left: 536px; top: 17px;">0</div>
-  <div style="width: 300px; height: 50px; position: absolute; text-align: center; font-family: Verdana; font-weight: bold; font-size: 30px; color: rgb(0, 0, 0); z-index: 88887; -webkit-user-select: none; left: 535px; top: 23px;">0</div>
-  <div style="width: 300px; height: 50px; position: absolute; text-align: center; font-family: Verdana; font-weight: bold; font-size: 30px; color: rgb(0, 0, 0); z-index: 88887; -webkit-user-select: none; left: 535px; top: 22px;">0</div>
-  <div style="width: 300px; height: 50px; position: absolute; text-align: center; font-family: Verdana; font-weight: bold; font-size: 30px; color: rgb(0, 0, 0); z-index: 88887; -webkit-user-select: none; left: 535px; top: 21px;">0</div>
-  <div style="width: 300px; height: 50px; position: absolute; text-align: center; font-family: Verdana; font-weight: bold; font-size: 30px; color: rgb(0, 0, 0); z-index: 88887; -webkit-user-select: none; left: 535px; top: 20px;">0</div>
-  <div style="width: 300px; height: 50px; position: absolute; text-align: center; font-family: Verdana; font-weight: bold; font-size: 30px; color: rgb(0, 0, 0); z-index: 88887; -webkit-user-select: none; left: 535px; top: 19px;">0</div>
-  <div style="width: 300px; height: 50px; position: absolute; text-align: center; font-family: Verdana; font-weight: bold; font-size: 30px; color: rgb(0, 0, 0); z-index: 88887; -webkit-user-select: none; left: 535px; top: 18px;">0</div>
-  <div style="width: 300px; height: 50px; position: absolute; text-align: center; font-family: Verdana; font-weight: bold; font-size: 30px; color: rgb(0, 0, 0); z-index: 88887; -webkit-user-select: none; left: 535px; top: 17px;">0</div>
-  <div style="width: 300px; height: 50px; position: absolute; text-align: center; font-family: Verdana; font-weight: bold; font-size: 30px; color: rgb(0, 0, 0); z-index: 88887; -webkit-user-select: none; left: 534px; top: 23px;">0</div>
-  <div style="width: 300px; height: 50px; position: absolute; text-align: center; font-family: Verdana; font-weight: bold; font-size: 30px; color: rgb(0, 0, 0); z-index: 88887; -webkit-user-select: none; left: 534px; top: 22px;">0</div>
-  <div style="width: 300px; height: 50px; position: absolute; text-align: center; font-family: Verdana; font-weight: bold; font-size: 30px; color: rgb(0, 0, 0); z-index: 88887; -webkit-user-select: none; left: 534px; top: 21px;">0</div>
-  <div style="width: 300px; height: 50px; position: absolute; text-align: center; font-family: Verdana; font-weight: bold; font-size: 30px; color: rgb(0, 0, 0); z-index: 88887; -webkit-user-select: none; left: 534px; top: 20px;">0</div>
-  <div style="width: 300px; height: 50px; position: absolute; text-align: center; font-family: Verdana; font-weight: bold; font-size: 30px; color: rgb(0, 0, 0); z-index: 88887; -webkit-user-select: none; left: 534px; top: 19px;">0</div>
-  <div style="width: 300px; height: 50px; position: absolute; text-align: center; font-family: Verdana; font-weight: bold; font-size: 30px; color: rgb(0, 0, 0); z-index: 88887; -webkit-user-select: none; left: 534px; top: 18px;">0</div>
-  <div style="width: 300px; height: 50px; position: absolute; text-align: center; font-family: Verdana; font-weight: bold; font-size: 30px; color: rgb(0, 0, 0); z-index: 88887; -webkit-user-select: none; left: 534px; top: 17px;">0</div>
-  <div style="width: 300px; height: 50px; position: absolute; text-align: center; font-family: Verdana; font-weight: bold; font-size: 30px; color: rgb(0, 0, 0); z-index: 88887; -webkit-user-select: none; left: 533px; top: 23px;">0</div>
-  <div style="width: 300px; height: 50px; position: absolute; text-align: center; font-family: Verdana; font-weight: bold; font-size: 30px; color: rgb(0, 0, 0); z-index: 88887; -webkit-user-select: none; left: 533px; top: 22px;">0</div>
-  <div style="width: 300px; height: 50px; position: absolute; text-align: center; font-family: Verdana; font-weight: bold; font-size: 30px; color: rgb(0, 0, 0); z-index: 88887; -webkit-user-select: none; left: 533px; top: 21px;">0</div>
-  <div style="width: 300px; height: 50px; position: absolute; text-align: center; font-family: Verdana; font-weight: bold; font-size: 30px; color: rgb(255, 255, 255); z-index: 88888; -webkit-user-select: none; left: 533px; top: 20px;">0</div>
-  <div style="width: 300px; height: 50px; position: absolute; text-align: center; font-family: Verdana; font-weight: bold; font-size: 30px; color: rgb(0, 0, 0); z-index: 88887; -webkit-user-select: none; left: 533px; top: 19px;">0</div>
-  <div style="width: 300px; height: 50px; position: absolute; text-align: center; font-family: Verdana; font-weight: bold; font-size: 30px; color: rgb(0, 0, 0); z-index: 88887; -webkit-user-select: none; left: 533px; top: 18px;">0</div>
-  <div style="width: 300px; height: 50px; position: absolute; text-align: center; font-family: Verdana; font-weight: bold; font-size: 30px; color: rgb(0, 0, 0); z-index: 88887; -webkit-user-select: none; left: 533px; top: 17px;">0</div>
-  <div style="width: 300px; height: 50px; position: absolute; text-align: center; font-family: Verdana; font-weight: bold; font-size: 30px; color: rgb(0, 0, 0); z-index: 88887; -webkit-user-select: none; left: 532px; top: 23px;">0</div>
-  <div style="width: 300px; height: 50px; position: absolute; text-align: center; font-family: Verdana; font-weight: bold; font-size: 30px; color: rgb(0, 0, 0); z-index: 88887; -webkit-user-select: none; left: 532px; top: 22px;">0</div>
-  <div style="width: 300px; height: 50px; position: absolute; text-align: center; font-family: Verdana; font-weight: bold; font-size: 30px; color: rgb(0, 0, 0); z-index: 88887; -webkit-user-select: none; left: 532px; top: 21px;">0</div>
-  <div style="width: 300px; height: 50px; position: absolute; text-align: center; font-family: Verdana; font-weight: bold; font-size: 30px; color: rgb(0, 0, 0); z-index: 88887; -webkit-user-select: none; left: 532px; top: 20px;">0</div>
-  <div style="width: 300px; height: 50px; position: absolute; text-align: center; font-family: Verdana; font-weight: bold; font-size: 30px; color: rgb(0, 0, 0); z-index: 88887; -webkit-user-select: none; left: 532px; top: 19px;">0</div>
-  <div style="width: 300px; height: 50px; position: absolute; text-align: center; font-family: Verdana; font-weight: bold; font-size: 30px; color: rgb(0, 0, 0); z-index: 88887; -webkit-user-select: none; left: 532px; top: 18px;">0</div>
-  <div style="width: 300px; height: 50px; position: absolute; text-align: center; font-family: Verdana; font-weight: bold; font-size: 30px; color: rgb(0, 0, 0); z-index: 88887; -webkit-user-select: none; left: 532px; top: 17px;">0</div>
-  <div style="width: 300px; height: 50px; position: absolute; text-align: center; font-family: Verdana; font-weight: bold; font-size: 30px; color: rgb(0, 0, 0); z-index: 88887; -webkit-user-select: none; left: 531px; top: 23px;">0</div>
-  <div style="width: 300px; height: 50px; position: absolute; text-align: center; font-family: Verdana; font-weight: bold; font-size: 30px; color: rgb(0, 0, 0); z-index: 88887; -webkit-user-select: none; left: 531px; top: 22px;">0</div>
-  <div style="width: 300px; height: 50px; position: absolute; text-align: center; font-family: Verdana; font-weight: bold; font-size: 30px; color: rgb(0, 0, 0); z-index: 88887; -webkit-user-select: none; left: 531px; top: 21px;">0</div>
-  <div style="width: 300px; height: 50px; position: absolute; text-align: center; font-family: Verdana; font-weight: bold; font-size: 30px; color: rgb(0, 0, 0); z-index: 88887; -webkit-user-select: none; left: 531px; top: 20px;">0</div>
-  <div style="width: 300px; height: 50px; position: absolute; text-align: center; font-family: Verdana; font-weight: bold; font-size: 30px; color: rgb(0, 0, 0); z-index: 88887; -webkit-user-select: none; left: 531px; top: 19px;">0</div>
-  <div style="width: 300px; height: 50px; position: absolute; text-align: center; font-family: Verdana; font-weight: bold; font-size: 30px; color: rgb(0, 0, 0); z-index: 88887; -webkit-user-select: none; left: 531px; top: 18px;">0</div>
-  <div style="width: 300px; height: 50px; position: absolute; text-align: center; font-family: Verdana; font-weight: bold; font-size: 30px; color: rgb(0, 0, 0); z-index: 88887; -webkit-user-select: none; left: 531px; top: 17px;">0</div>
-  <div style="width: 300px; height: 50px; position: absolute; text-align: center; font-family: Verdana; font-weight: bold; font-size: 30px; color: rgb(0, 0, 0); z-index: 88887; -webkit-user-select: none; left: 530px; top: 23px;">0</div>
-  <div style="width: 300px; height: 50px; position: absolute; text-align: center; font-family: Verdana; font-weight: bold; font-size: 30px; color: rgb(0, 0, 0); z-index: 88887; -webkit-user-select: none; left: 530px; top: 22px;">0</div>
-  <div style="width: 300px; height: 50px; position: absolute; text-align: center; font-family: Verdana; font-weight: bold; font-size: 30px; color: rgb(0, 0, 0); z-index: 88887; -webkit-user-select: none; left: 530px; top: 21px;">0</div>
-  <div style="width: 300px; height: 50px; position: absolute; text-align: center; font-family: Verdana; font-weight: bold; font-size: 30px; color: rgb(0, 0, 0); z-index: 88887; -webkit-user-select: none; left: 530px; top: 20px;">0</div>
-  <div style="width: 300px; height: 50px; position: absolute; text-align: center; font-family: Verdana; font-weight: bold; font-size: 30px; color: rgb(0, 0, 0); z-index: 88887; -webkit-user-select: none; left: 530px; top: 19px;">0</div>
-  <div style="width: 300px; height: 50px; position: absolute; text-align: center; font-family: Verdana; font-weight: bold; font-size: 30px; color: rgb(0, 0, 0); z-index: 88887; -webkit-user-select: none; left: 530px; top: 18px;">0</div>
-  <div style="width: 300px; height: 50px; position: absolute; text-align: center; font-family: Verdana; font-weight: bold; font-size: 30px; color: rgb(0, 0, 0); z-index: 88887; -webkit-user-select: none; left: 530px; top: 17px;">0</div>
-  <canvas width="150" height="150" style="z-index: 69; position: absolute; left: 880.7973799593747px; top: 288.1699138371274px;"></canvas>
-  <canvas width="150" height="150" style="z-index: 69; position: absolute; left: 94.18296936130267px; top: 175.22475277371694px;"></canvas>
-  <canvas width="150" height="150" style="z-index: 69; position: absolute; left: 147.39346598794316px; top: 196.6628938429057px;"></canvas>
-  <canvas width="150" height="150" style="z-index: 69; position: absolute; left: -235.79706690685066px; top: -486.7269952782424px;"></canvas>
+<script src="js/lib/jquery.js"></script>
+<script src="js/lib/jquery.fireworks.js" type="text/javascript"></script>
+<style type="text/css">
+*{ -webkit-tap-highlight-color:rgba(0,0,0,0); -webkit-box-sizing: border-box; box-sizing: border-box; }
+html{ width: 100%; height: 100%; }
+body{ max-width: 600px; margin: 0 auto; background: #0b3443; color: #f0f0f0;}
+.share_img{ width: 0; height: 0; overflow: hidden; opacity: 0; }
+.content{ padding: 80px 20px;}
+.text_wrapper{ display: -webkit-box; display: flex; }
+.text_wrapper .text{ padding-top: 20px; padding-left: 20px; }
+.hide{ display: none !important; }
+p{ margin: 0; }
+.btn-groups{ padding-right: 20px; text-align: center; }
+.heart-btn{ display: inline-block; animation: breath 0.8s linear 0s infinite both; -webkit-animation: breath 0.8s linear 0s infinite both; }
+.btn{ position: relative; display: inline-block; width: 60px; height: 60px; margin: 0 30px; transform: rotate(45deg); -webkit-transform: rotate(45deg);}
+.btn:hover{ cursor:pointer;}
+.btn span{ display: block; width: 100%; height: 100%; line-height: 60px; margin-top: -10px; margin-left: -10px; text-align: center; transform: rotate(-45deg); -webkit-transform: rotate(-45deg); }
+.btn-a{ background: #d26ae5; }
+.btn-b{ background: #c9c9c9; }
+.btn-a:before{ content: ''; position: absolute; display: block; width: 30px; height: 60px; background: #d26ae5; left: -29px; top: 0; border-top-left-radius: 60px; border-bottom-left-radius: 60px; }
+.btn-a:after{ content: ''; position: absolute; display: block; width: 60px; height: 30px; background: #d26ae5; left: 0; top: -29px; border-top-left-radius: 60px; border-top-right-radius: 60px;}
+.btn-b:before{ content: ''; position: absolute; display: block; width: 30px; height: 60px; background: #c9c9c9; left: -29px; top: 0; border-top-left-radius: 60px; border-bottom-left-radius: 60px; }
+.btn-b:after{ content: ''; position: absolute; display: block; width: 60px; height: 30px; background: #c9c9c9; left: 0; top: -29px; border-top-left-radius: 60px; border-top-right-radius: 60px;}
+.container{  }
+.container .mask{ position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.3); }
+.container .modal{ width: 80%; height: 160px; position: absolute; top: 50%; left: 50%; padding: 20px 15px; border-radius: 5px; transform: translate(-50%, -70%); -webkit-transform: translate(-50%，-70%); background: #f3f3f3;}
+.container .modal p{ margin-top: 20px; margin-bottom: 20px; font-size: 16px; color: #353535; text-align: center;}
+.confirm{ display: block; width: 120px; height: 40px; margin: 0 auto; border: none; font-size: 16px; border-radius: 5px; color: #ffffff; background: #f45cae; }
+.type_words{ padding: 12px 20px; }
+@keyframes breath {
+	0% {
+		transform: scale3d(1,1,1);
+		-webkit-transform: scale3d(1,1,1);
+		transform-origin: 50% 50%;
+	}
+	50%{
+		transform: scale3d(1.02,1.02,1.02);
+		-webkit-transform: scale3d(1.02,1.02,1.02);
+		transform-origin: 50% 50%;
+	}
+	100%{
+		transform: scale3d(1,1,1);
+		-webkit-transform: scale3d(1,1,1);
+		transform-origin: 50% 50%;
+	}
+}
+</style>
+<script type="text/javascript">
+$(function() {
+	$('#yes').click(function(event) {
+		modal('我就知道小姐姐您一定会愿意的。(^_^)', function() {
+			$('.page_one').addClass('hide');
+			$('.page_two').removeClass('hide');
+			// typeWrite();
+			fireworks();
+			
+		});
+	});
+	$('#no').click(function(event) {
+		modal('明人不说暗话！', A);
+	});
+});
+
+function A() {
+	modal('我喜欢你！', B);
+}
+
+function B() {
+	modal('我知道你在等我这一句话', C);
+}
+
+function C() {
+	modal('请您不要拒绝我', D);
+}
+
+function D() {
+	modal('拒绝我，不存在的', E);
+}
+
+function E() {
+	modal('这辈子都不可能让你离开我', F);
+}
+
+function F() {
+	modal('跟我走吧', G);
+}
+
+function G() {
+	modal('房产证上写你名', H);
+}
+
+function H() {
+	modal('我会做饭', I);
+}
+
+function I() {
+	modal('爱你。么么哒！', J);
+}
+
+function J() {
+	modal('行，我们去民政局登记吧', function() {
+		fireworks();
+	});
+}
+
+function fireworks() {
+	$('.page_one').addClass('hide');
+	$('.page_two').removeClass('hide');
+	$('.page_two').fireworks({ 
+	  sound: false, 
+	  opacity: 0.9, 
+	  width: '100%', 
+	  height: '100%' 
+	});	
+}
+
+function modal(content, callback) {
+	var tpl = '<div class="container">'+
+							'<div class="mask"></div>'+
+							'<div class="modal">'+
+								'<p>'+ content +'</p>'+
+								'<button type="button" id="confirm" class="confirm">确定</button>'+
+							'</div>'+
+						'</div>';
+	$('body').append(tpl);
+	$(document).on('click', '.confirm', function() {
+		$('.container').remove();
+		callback();
+	});
+}
+
+var myWords = '有人说，人的一生会遇到2920万人，而两个人相爱的概率只有0.000049。在这茫茫人海中，两个人能相遇就值得感激，能相爱更是一种难得。所以，我很庆幸上天让我遇见了你。我希望有个如你一般的人，能看完我写过的所有状态，读完我所有的日志，看完我从小到大的照片，试着听我喜欢的歌。如果可以，甚至陪我去我喜欢的地方，只想弥补错过你的青春。';
+var x = 0;
+var speed = 150;
+var current = 0;
+function typeWrite(){
+	$('.type_words').html(myWords.substring(0, x++)+'_');
+	var timer = setTimeout("typeWrite()", speed);
+	if (x == myWords.length) {
+		x = myWords.length;
+		clearTimeout(timer)
+	}
+}
+
+</script>
+<body>
+<div class="share_img"><img src="images/a8b.png" alt=""></div>
+<div class="page_one">
+<div class="content">
+<div class="text_wrapper">
+<img src="images/a8.png" alt="">
+<div class="text">
+小姐姐，我好喜欢你，你愿意做我女朋友吗？
 </div>
-<audio src="./src/wav/flap.wav"></audio>
-<audio src="./src/wav/flap.wav"></audio>
-<audio src="./src/wav/flap.wav"></audio>
-<audio src="./src/wav/flap.wav"></audio>
-<audio src="./src/wav/flap.wav"></audio>
-<audio src="./src/wav/slide.wav"></audio>
-<audio src="./src/wav/slide.wav"></audio>
-<audio src="./src/wav/slide.wav"></audio>
-<audio src="./src/wav/clang.wav"></audio>
-<audio src="./src/wav/clang.wav"></audio>
-<audio src="./src/wav/clang.wav"></audio>
-<audio src="./src/wav/coin.wav"></audio>
-<audio src="./src/wav/coin.wav"></audio>
-<audio src="./src/wav/coin.wav"></audio>
-<audio src="./src/wav/coin2.wav"></audio>
-<audio src="./src/wav/coin2.wav"></audio>
-<audio src="./src/wav/coin2.wav"></audio>
-<audio src="./src/wav/coin3.wav"></audio>
-<audio src="./src/wav/coin3.wav"></audio>
-<audio src="./src/wav/coin3.wav"></audio>
-<audio src="./src/wav/coin4.wav"></audio>
-<audio src="./src/wav/coin4.wav"></audio>
-<audio src="./src/wav/coin4.wav"></audio>
-<audio src="./src/wav/kick.wav"></audio>
-<audio src="./src/wav/kick.wav"></audio>
-<audio src="./src/wav/kick.wav"></audio>
-<audio src="./src/wav/kick.wav"></audio>
-<audio src="./src/wav/kick.wav"></audio>
-<audio src="./src/wav/kick2.wav"></audio>
-<audio src="./src/wav/kick2.wav"></audio>
-<audio src="./src/wav/kick2.wav"></audio>
-<audio src="./src/wav/kick2.wav"></audio>
-<audio src="./src/wav/kick2.wav"></audio>
-<audio src="./src/wav/kick3.wav"></audio>
-<audio src="./src/wav/kick3.wav"></audio>
-<audio src="./src/wav/kick3.wav"></audio>
-<audio src="./src/wav/kick3.wav"></audio>
-<audio src="./src/wav/kick3.wav"></audio>
-<audio src="./src/wav/kick4.wav"></audio>
-<audio src="./src/wav/kick4.wav"></audio>
-<audio src="./src/wav/kick4.wav"></audio>
-<audio src="./src/wav/kick4.wav"></audio>
-<audio src="./src/wav/kick4.wav"></audio>
-<audio src="./src/wav/kick5.wav"></audio>
-<audio src="./src/wav/kick5.wav"></audio>
-<audio src="./src/wav/kick5.wav"></audio>
-<audio src="./src/wav/kick5.wav"></audio>
-<audio src="./src/wav/kick5.wav"></audio>
-<audio src="./src/wav/squish1.wav"></audio>
-<audio src="./src/wav/squish1.wav"></audio>
-<audio src="./src/wav/squish1.wav"></audio>
-<audio src="./src/wav/squish2.wav"></audio>
-<audio src="./src/wav/squish2.wav"></audio>
+</div>
+</div>
+<div class="btn-groups">
+<div class="heart-btn">
+<div id="yes" class="btn btn-a"><span>愿意</span></div>
+</div>
+<div id="no" class="btn btn-b"><span>不愿意</span></div>
+</div>
+</div>
+<div class="page_two hide">
+<div class="type_words"></div>
+</div>
 </body>
 </html>
