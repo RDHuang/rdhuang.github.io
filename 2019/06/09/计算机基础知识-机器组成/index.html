@@ -1,0 +1,394 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.8.0">
+    <!--Setting-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta name="apple-mobile-web-app-capable" content="Mr·Huang&#39;s Blog">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no,email=no,adress=no">
+    <meta name="browsermode" content="application">
+    <meta name="screen-orientation" content="portrait">
+    <meta name="theme-version" content="1">
+    <meta name="root" content="/">
+    <link rel="dns-prefetch" href="http://yoursite.com">
+    <!--SEO-->
+
+    <meta name="keywords" content="计算机知识,机器组成">
+
+
+    <meta name="description" content="计算机是由硬件系统（hardware system）和软件系统（software system）两部分组成的。
+传统电脑系统的硬体单元一般可分为输入单元、输出单元、算术逻辑单元、控制单元及记忆单...">
+
+
+
+<meta name="robots" content="all">
+<meta name="google" content="all">
+<meta name="googlebot" content="all">
+<meta name="verify" content="all">
+
+    <!--Title-->
+
+
+<title>计算机基础知识---机器组成 | Mr·Huang&#39;s Blog</title>
+
+
+    <link rel="alternate" href="/atom.xml" title="Mr·Huang&#39;s Blog" type="application/atom+xml">
+
+
+    <link rel="icon" href="/favicon.ico">
+
+    
+
+
+
+<link rel="stylesheet" href="/css/bootstrap.min.css?rev=3.3.7">
+<link rel="stylesheet" href="/css/font-awesome.min.css?rev=4.5.0">
+<link rel="stylesheet" href="/css/style.css?rev=@@hash">
+
+
+
+
+    
+	<div class="hide">
+		<script type="text/javascript">
+			var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan class='cnzz_stat_icon_1263868967 hide' %3E%3Cscript%20src%3D%22https%3A%2F%2Fs95.cnzz.com%2Fz_stat.php%3Fweb_id%3D1272564536%22%3E%3C%2Fscript%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s19.cnzz.com/z_stat.php%3Fid%3D1263868967%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));
+		</script>
+	</div>
+
+
+
+
+
+
+    
+
+</head>
+
+</html>
+<!--[if lte IE 8]>
+<style>
+    html{ font-size: 1em }
+</style>
+<![endif]-->
+<!--[if lte IE 9]>
+<div style="ie">你使用的浏览器版本过低，为了你更好的阅读体验，请更新浏览器的版本或者使用其他现代浏览器，比如Chrome、Firefox、Safari等。</div>
+<![endif]-->
+
+<body>
+    <header class="main-header" style="background-image:url(/./img/banner.jpg)">
+    <div class="main-header-box">
+        <a class="header-avatar" href="/" title="Mr·Huang">
+            <img src="/img/avatar.jpg" alt="logo头像" class="img-responsive center-block">
+        </a>
+        <div class="branding">
+        	<!--<h2 class="text-hide">Snippet主题,从未如此简单有趣</h2>-->
+            
+                <h2> 踏实 努力 认真 学习 </h2>
+            
+    	</div>
+    </div>
+</header>
+    <nav class="main-navigation">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="navbar-header"><span class="nav-toggle-button collapsed pull-right" data-toggle="collapse" data-target="#main-menu" id="mnav">
+                    <span class="sr-only"></span>
+                        <i class="fa fa-bars"></i>
+                    </span>
+                    <a class="navbar-brand" href="http://yoursite.com">Mr·Huang&#39;s Blog</a>
+                </div>
+                <div class="collapse navbar-collapse" id="main-menu">
+                    <ul class="menu">
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/"><i class="fa "></i>首页</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/categories/计算机知识/"><i class="fa "></i>计算机知识</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/categories/阅读/"><i class="fa "></i>阅读</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/categories/工具/"><i class="fa "></i>工具</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/archives/"><i class="fa "></i>时间轴</a>
+                            </li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+    <section class="content-wrap">
+        <div class="container">
+            <div class="row">
+                <main class="col-md-8 main-content m-post">
+                    <p id="process"></p>
+<article class="post">
+    <div class="post-head">
+        <h1 id="计算机基础知识---机器组成">
+            
+	            计算机基础知识---机器组成
+            
+        </h1>
+        <div class="post-meta">
+    
+        <span class="categories-meta fa-wrap">
+            <i class="fa fa-folder-open-o"></i>
+            <a class="category-link" href="/categories/计算机知识/">计算机知识</a>
+        </span>
+    
+
+    
+        <span class="fa-wrap">
+            <i class="fa fa-tags"></i>
+            <span class="tags-meta">
+                
+                    <a class="tag-link" href="/tags/机器组成/">机器组成</a> <a class="tag-link" href="/tags/计算机知识/">计算机知识</a>
+                
+            </span>
+        </span>
+    
+
+    
+        
+        <span class="fa-wrap">
+            <i class="fa fa-clock-o"></i>
+            <span class="date-meta">2019/06/09</span>
+        </span>
+        
+            <span class="fa-wrap">
+                <i class="fa fa-eye"></i>
+                <span id="busuanzi_value_page_pv"></span>
+            </span>
+        
+    
+</div>
+            
+            
+    </div>
+    
+    <div class="post-body post-content">
+        <p>计算机是由<strong>硬件系统</strong>（hardware system）和<strong>软件系统</strong>（software system）两部分组成的。</p>
+<p>传统电脑系统的硬体单元一般可分为输入单元、输出单元、算术逻辑单元、控制单元及记忆单元，其中算术逻辑单元和控制单元合称中央处理单元（Center Processing Unit,CPU)。</p>
+<h2 id="硬件系统"><a href="#硬件系统" class="headerlink" title="硬件系统"></a>硬件系统</h2><ul>
+<li><p>电源</p>
+<p>  电源是电脑中不可缺少的供电设备，它的作用是将220V交流电转换为电脑中使用的5V、12V、3.3V直流电，其性能的好坏，直接影响到其他设备工作的稳定性，进而会影响整机的稳定性。手提电脑在自带锂电池情况下，为手提电脑提供有效电源。</p>
+</li>
+<li><p>主板</p>
+<p>  主板是电脑中各个部件工作的一个平台，它把电脑的各个部件紧密连接在一起，各个部件通过主板进行数据传输。也就是说，电脑中重要的“交通枢纽”都在主板上，它工作的稳定性影响着整机工作的稳定性。</p>
+</li>
+<li><p>CPU</p>
+<p>  CPU即中央处理器，是一台计算机的运算核心和控制核心。其功能主要是解释计算机指令以及处理计算机软件中的数据。CPU由运算器、控制器、寄存器、高速缓存及实现它们之间联系的数据、控制及状态的总线构成。作为整个系统的核心，CPU也是整个系统最高的执行单元，因此CPU已成为决定电脑性能的核心部件，很多用户都以它为标准来判断电脑的档次。</p>
+</li>
+<li><p>内存</p>
+<p>  内存又叫内部存储器或者是随机存储器（RAM），分为DDR内存和SDRAM内存，（但是SDRAM由于容量低，存储速度慢，稳定性差，已经被DDR淘汰了）内存属于电子式存储设备，它由电路板和芯片组成，特点是体积小，速度快，有电可存，无电清空，即电脑在开机状态时内存中可存储数据，关机后将自动清空其中的所有数据。 内存有DDR、DDR II、DDR III三大类，容量1-64GB。</p>
+</li>
+<li><p>硬盘</p>
+<p>  硬盘属于外部存储器，机械硬盘由金属磁片制成，而磁片有记忆功能，所以储到磁片上的数据，不论在开机，还是关机，都不会丢失。硬盘容量很大，已达TB级，尺寸有3.5、2.5、1.8、1.0英寸等，接口有IDE、SATA、SCSI等，SATA最普遍。移动硬盘是以硬盘为存储介质，强调便携性的存储产品。市场上绝大多数的移动硬盘都是以标准硬盘为基础的，而只有很少部分的是以微型硬盘（1.8英寸硬盘等）为基础，但价格因素决定着主流移动硬盘还是以标准笔记本硬盘为基础。因为采用硬盘为存储介质，因此移动硬盘在数据的读写模式与标准IDE硬盘是相同的。移动硬盘多采用USB、IEEE1394等传输速度较快的接口，可以较高的速度与系统进行数据传输。固态硬盘用固态电子存储芯片阵列而制成的硬盘，由控制单元和存储单元（FLASH芯片）组成。固态硬盘在产品外形和尺寸上也完全与普通硬盘一致但是固态硬盘比机械硬盘速度更快。</p>
+</li>
+<li><p>声卡</p>
+<p>  声卡是组成多媒体电脑必不可少的一个硬件设备，其作用是当发出播放命令后，声卡将电脑中的声音数字信号转换成模拟信号送到音箱上发出声音。</p>
+</li>
+<li><p>显卡</p>
+<p>  显卡在工作时与显示器配合输出图形、文字，作用是将计算机系统所需要的显示信息进行转换驱动，并向显示器提供行扫描信号，控制显示器的正确显示，是连接显示器和个人电脑主板的重要元件，是“人机对话”的重要设备之一。</p>
+</li>
+<li><p>网卡</p>
+<p>  网卡是工作在数据链路层的网路组件，是局域网中连接计算机和传输介质的接口，不仅能实现与局域网传输介质之间的物理连接和电信号匹配，还涉及帧的发送与接收、帧的封装与拆封、介质访问控制、数据的编码与解码以及数据缓存的功能等。网卡的作用是充当电脑与网线之间的桥梁，它是用来建立局域网并连接到Internet的重要设备之一。</p>
+<p>  在整合型主板中常把声卡、显卡、网卡部分或全部集成在主板上。</p>
+</li>
+<li><p>调制解调器</p>
+<p>  英文名为“Modem”，俗称“猫”，即调制解调器，类型有内置式和外置式，有线式和无线式。调制解调器是通过电话线上网时必不可少的设备之一。它的作用是将电脑上处理的数字信号转换成电话线传输的模拟信号。随着ADSL宽带网的普及，内置式调制解调器逐渐退出了市场。</p>
+</li>
+<li><p>光驱</p>
+<p>  英文名为“Optical Disk driver”，电脑用来读写光碟内容的机器，也是在台式机和笔记本便携式电脑里比较常见的一个部件。随着多媒体的应用越来越广泛，使得光驱在计算机诸多配件中已经成为标准配置。光驱可分为CD-ROM驱动器、DVD光驱（DVD-ROM）、康宝（COMBO）和DVD刻录机（DVD-RAM）等。读写的能力和速度也日益提升，4× 16× 32× 40× 48×。</p>
+</li>
+<li><p>显示器</p>
+</li>
+<li><p>键盘</p>
+</li>
+<li><p>鼠标</p>
+</li>
+<li><p>音箱</p>
+</li>
+<li><p>打印机</p>
+</li>
+<li><p>视频设备</p>
+</li>
+<li><p>闪存盘 ===&gt; U盘</p>
+</li>
+<li><p>移动存储卡及读卡器</p>
+</li>
+</ul>
+<h2 id="软件系统"><a href="#软件系统" class="headerlink" title="软件系统"></a>软件系统</h2><p>所谓软件是指为方便使用计算机和提高使用效率而组织的程序以及用于开发、使用和维护的有关文档。软件系统可分为<strong>系统软件</strong>和<strong>应用软件</strong>两大类。</p>
+<h3 id="系统软件"><a href="#系统软件" class="headerlink" title="系统软件"></a>系统软件</h3><p>系统软件System software,由一组控制计算机系统并管理其资源的程序组成，其主要功能包括：启动计算机，存储、加载和执行应用程序，对文件进行排序、检索，将程序语言翻译成机器语言等。实际上，系统软件可以看作用户与计算机的接口，它为应用软件和用户提供了控制、访问硬件的手段，这些功能主要由操作系统完成。此外，编译系统和各种工具软件也属此类，它们从另一方面辅助用户使用计算机。下面分别介绍它们的功能。</p>
+<ol>
+<li><p>操作系统（Operating System，OS） </p>
+<p> 操作系统是管理、控制和监督计算机软、硬件资源协调运行的程序系统，由一系列具有不同控制和管理功能的程序组成，它是直接运行在计算机硬件上的、最基本的系统软件，是系统软件的核心。操作系统是计算机发展中的产物，它的主要目的有两个：一是方便用户使用计算机，是用户和计算机的接口。比如用户键入一条简单的命令就能自动完成复杂的功能，这就是操作系统帮助的结果；二是统一管理计算机系统的全部资源，合理组织计算机工作流程，以便充分、合理地发挥计算机的效率。操作系统通常应包括下列五大功能模块：</p>
+<p> （1）处理器管理：当多个程序同时运行时，解决处理器（CPU）时间的分配问题。</p>
+<p> （2）作业管理：完成某个独立任务的程序及其所需的数据组成一个作业。作业管理的任务主要是为用户提供一个使用计算机的界面使其方便地运行自己的作业，并对所有进入系统的作业进行调度和控制，尽可能高效地利用整个系统的资源。</p>
+<p> （3）存储器管理：为各个程序及其使用的数据分配存储空间，并保证它们互不干扰。</p>
+<p> （4）设备管理：根据用户提出使用设备的请求进行设备分配，同时还能随时接收设备的请求（称为中断），如要求输入信息。</p>
+<p> （5）文件管理：主要负责文件的存储、检索、共享和保护，为用户提供文件操作的方便。</p>
+<p> 操作系统的种类繁多，依其功能和特性分为分批处理操作系统、分时操作系统和实时操作系统等；依同时管理用户数的多少分为单用户操作系统和多用户操作系统；适合管理计算机网络环境的网络操作系统。</p>
+<p> 微机操作系统随着微机硬件技术的发展而发展，从简单到复杂。Microsoft公司开发的DOS是一单用户单任务系统，而Windows操作系统则是一多户多任务系统，经过十几年的发展，已从Windows 3.1发展Windows NT、Windows 2000、Windows XP、Windows vista、Windows 7和Windows 8等等。它是当前微机中广泛使用的操作系统之一。Linux是一个源码公开的操作系统，程序员可以根据自己的兴趣和灵感对其进行改变，这让Linux吸收了无数程序员的精华，不断壮大，已被越来越多的用户所采用，是Windows操作系统强有力的竞争对手。</p>
+</li>
+<li><p>语言处理系统（翻译程序）</p>
+<p> 人和计算机交流信息使用的语言称为计算机语言或称程序设计语言。计算机语言通常分为机器语言、汇编语言和高级语言三类。如果要在计算机上运行高级语言程序就必须配备程序语言翻译程序（下简称翻译程序）。翻译程序本身是一组程序，不同的高级语言都有相应的翻译程序。翻译的方法有两种：</p>
+<p> 一种称为“解释”。早期的BASIC源程序的执行都采用这种方式。它调用机器配备的BASIC“解释程序”，在运行BASIC源程序时，逐条把BASIC的源程序语句进行解释和执行，它不保留目标程序代码，即不产生可执行文件。这种方式速度较慢，每次运行都要经过“解释”，边解释边执行。</p>
+<p> 另一种称为“编译”，它调用相应语言的编译程序，把源程序变成目标程序（以.OBJ为扩展名），然后再用连接程序，把目标程序与库文件相连接形成可执行文件。尽管编译的过程复杂一些，但它形成的可执行文件（以.exe为扩展名）可以反复执行，速度较快。运行程序时只要键入可执行程序的文件名，再按Enter键即可。</p>
+<p> 对源程序进行解释和编译任务的程序，分别叫作编译程序和解释程序。如FORTRAN、COBOL、PASCAL和C等高级语言，使用时需有相应的编译程序；BASIC、LISP等高级语言，使用时需用相应的解释程序。</p>
+</li>
+<li><p>服务程序</p>
+<p> 服务程序能够提供一些常用的服务性功能，它们为用户开发程序和使用计算机提供了方便，像微机上经常使用的诊断程序、调试程序、编辑程序均属此类。</p>
+</li>
+<li><p>数据库管理系统</p>
+<p> 数据库是指按照一定联系存储的数据集合，可为多种应用共享。数据库管理系统（Data Base Management System，DBMS）则是能够对数据库进行加工、管理的系统软件。其主要功能是建立、消除、维护数据库及对库中数据进行各种操作。数据库系统主要由数据库（DB）、数据库管理系统（DBMS）以及相应的应用程序组成。数据库系统不但能够存放大量的数据，更重要的是能迅速、自动地对数据进行检索、修改、统计、排序、合并等操作，以得到所需的信息。这一点是传统的文件柜无法作到的。</p>
+<p> 数据库技术是计算机技术中发展最快、应用最广的一个分支。可以说，在今后的计算机应用开发中大都离不开数据库。因此，了解数据库技术犹其是微机环境下的数据库应用是非常必要的。</p>
+</li>
+</ol>
+<h3 id="应用软件"><a href="#应用软件" class="headerlink" title="应用软件"></a>应用软件</h3><p>为解决各类实际问题而设计的程序系统称为应用软件。从其服务对象的角度，又可分为通用软件和专用软件两类。</p>
+
+    </div>
+    
+    <div class="post-footer">
+        <div>
+            
+                转载声明：商业转载请联系作者获得授权,非商业转载请注明出处 © <a href target="_blank">Snippet</a>
+            
+        </div>
+        <div>
+            
+        </div>
+    </div>
+</article>
+
+<div class="article-nav prev-next-wrap clearfix">
+    
+    
+        <a href="/2019/06/09/计算机基础知识-发展史/" class="next-post btn btn-default" title="计算机基础知识--发展史">
+            <span class="hidden-lg">下一篇</span>
+            <span class="hidden-xs">计算机基础知识--发展史</span><i class="fa fa-angle-right fa-fw"></i>
+        </a>
+    
+</div>
+
+
+    <div id="comments">
+        
+	
+    <div id="vcomments" class="valine"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="/assets/valine.min.js"></script>
+
+    <script>
+        new Valine({
+            av: AV,
+            el: '#vcomments',
+            appId: 'gR2TfIpGmsj5EE2m8cfiDjXs-gzGzoHsz',
+            appKey: 'SNxB0mSSjngYKmc3ePVV5q9w',
+            placeholder: '说点什么吧',
+            notify: true,
+            verify: false,
+            avatar: 'mm',
+            meta: 'nick,mail'.split(','),
+            pageSize: '10',
+            path: window.location.pathname,
+            lang: 'zh-CN'.toLowerCase()
+        })
+    </script>
+
+
+    </div>
+
+
+
+
+
+                </main>
+                
+                    <aside id="article-toc" role="navigation" class="col-md-4">
+    <div class="widget">
+        <h3 class="title">文章目录</h3>
+        
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#硬件系统"><span class="toc-text">硬件系统</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#软件系统"><span class="toc-text">软件系统</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#系统软件"><span class="toc-text">系统软件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#应用软件"><span class="toc-text">应用软件</span></a></li></ol></li></ol>
+        
+    </div>
+</aside>
+
+                
+            </div>
+        </div>
+    </section>
+    <footer class="main-footer">
+    <div class="container">
+        <div class="row">
+        </div>
+    </div>
+</footer>
+
+<a id="back-to-top" class="icon-btn hide">
+	<i class="fa fa-chevron-up"></i>
+</a>
+
+
+
+
+    <div class="copyright">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="busuanzi">
+    
+        访问量:
+        <strong id="busuanzi_value_site_pv">
+            <i class="fa fa-spinner fa-spin"></i>
+        </strong>
+        &nbsp; | &nbsp;
+        访客数:
+        <strong id="busuanzi_value_site_uv">
+            <i class="fa fa-spinner fa-spin"></i>
+        </strong>
+    
+</div>
+
+            </div>
+            <div class="col-sm-12">
+                <span>Copyright &copy; 20190608
+                </span> |
+                <span>
+                    Powered by <a href="//hexo.io" class="copyright-links" target="_blank" rel="nofollow">Hexo</a>
+                </span> |
+                <span>
+                    Theme by <a href="//github.com/shenliyang/hexo-theme-snippet.git" class="copyright-links" target="_blank" rel="nofollow">Snippet</a>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+<script src="/js/app.js?rev=@@hash"></script>
+
+</body>
+</html>
