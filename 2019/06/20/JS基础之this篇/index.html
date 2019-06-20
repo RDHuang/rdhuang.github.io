@@ -18,10 +18,13 @@
     <link rel="dns-prefetch" href="http://yoursite.com">
     <!--SEO-->
 
-    <meta name="keywords" content="计算机 IT 编程">
+    <meta name="keywords" content="this关键之,call和apply">
 
 
-    <meta name="description" content="记录个人计算机技术学习">
+    <meta name="description" content="this指向相信this肯定很多人都会用，但是真要让自己去说this在什么情况下指向什么地方，可能就会有点迷糊。下面来一一列举一下。
+
+在方法中使用时，this —&gt;  所有者对象
+单独使...">
 
 
 
@@ -33,7 +36,7 @@
     <!--Title-->
 
 
-<title>标签: 奥斯卡 | Mr·Huang&#39;s Blog</title>
+<title>JS基础之this篇 | Mr·Huang&#39;s Blog</title>
 
 
     <link rel="alternate" href="/atom.xml" title="Mr·Huang&#39;s Blog" type="application/atom+xml">
@@ -149,43 +152,140 @@
     <section class="content-wrap">
         <div class="container">
             <div class="row">
-                <main class="col-md-8 main-content ">
-                    <ol class="breadcrumb">
+                <main class="col-md-8 main-content m-post">
+                    <p id="process"></p>
+<article class="post">
+    <div class="post-head">
+        <h1 id="JS基础之this篇">
+            
+	            JS基础之this篇
+            
+        </h1>
+        <div class="post-meta">
     
-    
-        <li>
-            奥斯卡
-        </li>
-    
+        <span class="categories-meta fa-wrap">
+            <i class="fa fa-folder-open-o"></i>
+            <a class="category-link" href="/categories/前端/">前端</a>
+        </span>
     
 
-</ol>
+    
+        <span class="fa-wrap">
+            <i class="fa fa-tags"></i>
+            <span class="tags-meta">
+                
+                    <a class="tag-link" href="/tags/call和apply/">call和apply</a> <a class="tag-link" href="/tags/this关键之/">this关键之</a>
+                
+            </span>
+        </span>
+    
 
-
-    <article class="post">
+    
         
-        <div class="post-content">
-            <div class="post-head home-post-head">
-                <h1 class="post-title">
-                    <a href="/2019/06/18/绿皮书/">《绿皮书》</a>
-                </h1>
-                <div class="post-meta">  &bull;
-                    <time class="post-date" datetime title>
-                        2019年06月18日
-                    </time>
-                </div>
-            </div>
-            <p class="brief">
-                
-                    内容简介
-《绿皮书》是由彼得·法拉利执导，维果·莫特森、马赫沙拉·阿里主演的剧情片，于2018年9月11日在多伦多国际电影节首映；2019年3月1日在中国内地上映。该片改编自真人真事，讲述了意裔美国人保镖托尼，他被聘用为世界上优秀的爵...
-                
-            </p>
+        <span class="fa-wrap">
+            <i class="fa fa-clock-o"></i>
+            <span class="date-meta">2019/06/20</span>
+        </span>
+        
+            <span class="fa-wrap">
+                <i class="fa fa-eye"></i>
+                <span id="busuanzi_value_page_pv"></span>
+            </span>
+        
+    
+</div>
+            
+            
+    </div>
+    
+    <div class="post-body post-content">
+        <h2 id="this指向"><a href="#this指向" class="headerlink" title="this指向"></a>this指向</h2><p>相信this肯定很多人都会用，但是真要让自己去说this在什么情况下指向什么地方，可能就会有点迷糊。下面来一一列举一下。</p>
+<ul>
+<li>在方法中使用时，this —&gt;  所有者对象</li>
+<li>单独使用时，  this —&gt;  全局对象</li>
+<li>在函数中使用时，this —&gt;  全局对象<br>  注意： 如果启用了严格模式（use strict） 那么this就变成了undefined</li>
+<li>在事件中使用时，this —&gt;  接收事件的元素<br>call 和 apply 可以改变this的指向，后面我们再说它</li>
+</ul>
+<blockquote>
+<p>在方法中</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">var obj = &#123;</span><br><span class="line">    a: 1,</span><br><span class="line">    b: function ()&#123;</span><br><span class="line">        return this.a</span><br><span class="line">        // 这里的this是指向所有者对象也就是obj</span><br><span class="line">        // this.a === obj.a</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>单独使用时</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var a = this;</span><br><span class="line">// this指向window</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>在函数中</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">function Fun() &#123;</span><br><span class="line">    return this;</span><br><span class="line">    // 这里this是指向全局对象也就是window</span><br><span class="line">&#125;</span><br><span class="line">// 如果是在严格模式下就是不一样的情况</span><br><span class="line">&quot;use strict&quot;;</span><br><span class="line">funtion Fun() &#123;</span><br><span class="line">    return this;</span><br><span class="line">    // 返回的是未定义的 undefined</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>在事件中</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;button onclick=&quot;btn&quot;&gt;按钮&lt;/button&gt;</span><br><span class="line">function btn()&#123;</span><br><span class="line">    this.innerHTML = &apos;我不想叫按钮了~&apos;</span><br><span class="line">    // 这里的this是指向button这个元素的</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="call-和-apply"><a href="#call-和-apply" class="headerlink" title="call() 和 apply()"></a>call() 和 apply()</h2><p>首先他们的功能其实是一样的，不同点在于传参方式不一样。</p>
+<p>他们都可以改变this的指向，调用一个对象的一个方法，用另一个对象替换当前的对象。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">obj1.call(obj2, args1,args2, ... argsN)</span><br><span class="line">obj1.apply(obj2, [args1, args2, ... argsN])</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>就是让obj2 调用 obj1 的方法，后面是传的参数</p>
+</blockquote>
+<p>这里还有一个小技巧，可以通过apply去找出数组中的最大值最小值</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Math.max.apply(null, arr);  // 这就能找出arr数组中的最大值</span><br><span class="line">Math.min.apply(null, arr);  // 这就能找出arr数组中的最小值</span><br></pre></td></tr></table></figure>
+    </div>
+    
+    <div class="post-footer">
+        <div>
+            
+                转载声明：商业转载请联系作者获得授权,非商业转载请注明出处 © <a href target="_blank">Mr_Huang</a>
+            
         </div>
-    </article>
- 
+        <div>
+            
+        </div>
+    </div>
+</article>
+
+<div class="article-nav prev-next-wrap clearfix">
+    
+    
+        <a href="/2019/06/19/正则验证/" class="next-post btn btn-default" title="JS基础之正则篇">
+            <span class="hidden-lg">下一篇</span>
+            <span class="hidden-xs">JS基础之正则篇</span><i class="fa fa-angle-right fa-fw"></i>
+        </a>
+    
+</div>
 
 
+    <div id="comments">
+        
+	
+    <div id="vcomments" class="valine"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="/assets/valine.min.js"></script>
+
+    <script>
+        new Valine({
+            av: AV,
+            el: '#vcomments',
+            appId: 'gR2TfIpGmsj5EE2m8cfiDjXs-gzGzoHsz',
+            appKey: 'SNxB0mSSjngYKmc3ePVV5q9w',
+            placeholder: '说点什么吧',
+            notify: true,
+            verify: false,
+            avatar: 'mm',
+            meta: 'nick,mail'.split(','),
+            pageSize: '10',
+            path: window.location.pathname,
+            lang: 'zh-CN'.toLowerCase()
+        })
+    </script>
+
+
+    </div>
 
 
 
@@ -193,123 +293,14 @@
 
                 </main>
                 
-                    
-    <aside class="col-md-4 sidebar">
-        
-        
+                    <aside id="article-toc" role="navigation" class="col-md-4">
     <div class="widget">
-        <h3 class="title">搜索</h3>
-        <div id="search-form">
-            <div id="result-mask" class="hide"></div>
-            <div class="search-area">
-                
-                    <input id="search-key" type="search" autocomplete="off" placeholder="搜点什么呢？">
-                    <button type="button" class="search-form-submit" id="search-local">站内搜索</button>
-                
-                
-            </div>
-            <div id="result-wrap" class="hide">
-                <div id="search-result"></div>
-            </div>
-            <div class="hide">
-                <template id="search-tpl">
-                    <div class="item">
-                        <a href="/{path}" title="{title}">
-                            <div class="title">{title}</div>
-                            <div class="content">{content}</div>
-                        </a>
-                    </div>
-                </template>
-            </div>
-        </div>
-    </div>
-
+        <h3 class="title">文章目录</h3>
         
-        
-    <div class="widget">
-        <h3 class="title">网站公告</h3>
-        <div class="notification">
-            <p>
-  吾魂兮无求乎永生 <br>
-  竭尽兮人事之所能
-</p>
-        </div>
-    </div>
-
-        
-        
-    <div class="widget">
-      <h3 class="title">社交</h3> 
-        <div class="content social">
-            
-	            <a href="//github.com/RDHuang" rel="external nofollow" title="Github" target="_blank">
-			    	<i class="github fa fa-github"></i>
-			    </a>
-            
-	            <a href="https://gitee.com/rdhuang" rel="external nofollow" title="码云" target="_blank">
-			    	<i class="registered fa fa-registered"></i>
-			    </a>
-            
-	            <a href="https://weibo.com/u/6837459318" rel="external nofollow" title="微博" target="_blank">
-			    	<i class="weibo fa fa-weibo"></i>
-			    </a>
-            
-	            <a href="mailto:rd_huang@126.com" rel="external nofollow" title="邮箱" target="_blank">
-			    	<i class="envelope-o fa fa-envelope-o"></i>
-			    </a>
-            
-        </div>
-    </div>
-
-
-        
-        
-    <div class="widget">
-        <h3 class="title">分类</h3>
-        <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/前端/"><i class="fa" aria-hidden="true">前端</i></a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/工具/"><i class="fa" aria-hidden="true">工具</i></a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/影视/"><i class="fa" aria-hidden="true">影视</i></a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/计算机知识/"><i class="fa" aria-hidden="true">计算机知识</i></a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/阅读/"><i class="fa" aria-hidden="true">阅读</i></a><span class="category-list-count">2</span></li></ul>
-    </div>
-
-
-        
-        
-    <div class="widget">
-        <h3 class="title">归档</h3>
-        <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/"><i class="fa" aria-hidden="true">2019年06月</i></a><span class="archive-list-count">12</span></li></ul>
-    </div>
-
-
-        
-        
-  <div class="widget">
-    <h3 class="title">标签云</h3>
-    <div class="content tag-cloud">
-        
-            <canvas width="300" height="300" id="tag-cloud-3d">
-                <a href="/tags/Js数组/" style="font-size: 10px;">Js数组</a> <a href="/tags/Markdown/" style="font-size: 10px;">Markdown</a> <a href="/tags/call和apply/" style="font-size: 10px;">call和apply</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/this关键之/" style="font-size: 10px;">this关键之</a> <a href="/tags/博客功能/" style="font-size: 10px;">博客功能</a> <a href="/tags/发展史/" style="font-size: 10px;">发展史</a> <a href="/tags/在线联系/" style="font-size: 10px;">在线联系</a> <a href="/tags/奥斯卡/" style="font-size: 10px;">奥斯卡</a> <a href="/tags/小说/" style="font-size: 10px;">小说</a> <a href="/tags/工具/" style="font-size: 10px;">工具</a> <a href="/tags/手机号验证/" style="font-size: 10px;">手机号验证</a> <a href="/tags/文学/" style="font-size: 20px;">文学</a> <a href="/tags/机器组成/" style="font-size: 10px;">机器组成</a> <a href="/tags/正则/" style="font-size: 10px;">正则</a> <a href="/tags/种族歧视/" style="font-size: 10px;">种族歧视</a> <a href="/tags/编辑器/" style="font-size: 10px;">编辑器</a> <a href="/tags/自尊/" style="font-size: 10px;">自尊</a> <a href="/tags/计算机知识/" style="font-size: 20px;">计算机知识</a> <a href="/tags/邮箱验证/" style="font-size: 10px;">邮箱验证</a> <a href="/tags/项目搭建/" style="font-size: 10px;">项目搭建</a>
-            </canvas>
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#this指向"><span class="toc-text">this指向</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#call-和-apply"><span class="toc-text">call() 和 apply()</span></a></li></ol>
         
     </div>
-  </div>
-
-
-        
-        
-    <div class="widget">
-        <h3 class="title">友链</h3>
-        <div class="content friends-link">
-        
-            <a href="https://hexo.io/zh-cn/" class="fa" target="_blank">Hexo官网</a>
-        
-            <a href="http://www.slgy1314.com" class="fa" target="_blank">视力归元</a>
-        
-        </div>
-    </div>
-
-
-        
-        
-        
-    </aside>
+</aside>
 
                 
             </div>
@@ -362,8 +353,6 @@
     </div>
 </div>
 
-
-	<script src="/js/search.js?rev=@@hash"></script>
 
 
 
