@@ -18,13 +18,15 @@
     <link rel="dns-prefetch" href="http://yoursite.com">
     <!--SEO-->
 
-    <meta name="keywords" content="this关键之,call和apply">
+    <meta name="keywords" content="浏览器原理">
 
 
-    <meta name="description" content="this指向相信this肯定很多人都会用，但是真要让自己去说this在什么情况下指向什么地方，可能就会有点迷糊。下面来一一列举一下。
-
-在方法中使用时，this —&gt;  所有者对象
-单独使...">
+    <meta name="description" content="浏览器的组成
+人机交互部分 （ui）
+网络请求部分 （Socker）
+Javascript引擎部分（解析执行Javascript）
+渲染引擎部分 （渲染html，css等）
+数据存储功能 （co...">
 
 
 
@@ -36,7 +38,7 @@
     <!--Title-->
 
 
-<title>JS基础之this篇 | Mr·Huang&#39;s Blog</title>
+<title>浏览器原理 | Mr·Huang&#39;s Blog</title>
 
 
     <link rel="alternate" href="/atom.xml" title="Mr·Huang&#39;s Blog" type="application/atom+xml">
@@ -156,9 +158,9 @@
                     <p id="process"></p>
 <article class="post">
     <div class="post-head">
-        <h1 id="JS基础之this篇">
+        <h1 id="浏览器原理">
             
-	            JS基础之this篇
+	            浏览器原理
             
         </h1>
         <div class="post-meta">
@@ -174,7 +176,7 @@
             <i class="fa fa-tags"></i>
             <span class="tags-meta">
                 
-                    <a class="tag-link" href="/tags/call和apply/">call和apply</a> <a class="tag-link" href="/tags/this关键之/">this关键之</a>
+                    <a class="tag-link" href="/tags/浏览器原理/">浏览器原理</a>
                 
             </span>
         </span>
@@ -184,7 +186,7 @@
         
         <span class="fa-wrap">
             <i class="fa fa-clock-o"></i>
-            <span class="date-meta">2019/06/20</span>
+            <span class="date-meta">2019/11/15</span>
         </span>
         
             <span class="fa-wrap">
@@ -199,42 +201,38 @@
     </div>
     
     <div class="post-body post-content">
-        <h2 id="this指向"><a href="#this指向" class="headerlink" title="this指向"></a>this指向</h2><p>相信this肯定很多人都会用，但是真要让自己去说this在什么情况下指向什么地方，可能就会有点迷糊。下面来一一列举一下。</p>
+        <h2 id="浏览器的组成"><a href="#浏览器的组成" class="headerlink" title="浏览器的组成"></a>浏览器的组成</h2><ol>
+<li>人机交互部分 （ui）</li>
+<li>网络请求部分 （Socker）</li>
+<li><strong>Javascript引擎部分</strong>（解析执行Javascript）</li>
+<li><strong>渲染引擎部分</strong> （渲染html，css等）</li>
+<li>数据存储功能 （cookie，以及html5中localStorage,sessionStorage)</li>
+</ol>
+<h2 id="主流渲染引擎介绍"><a href="#主流渲染引擎介绍" class="headerlink" title="主流渲染引擎介绍"></a>主流渲染引擎介绍</h2><blockquote>
+<p><strong>渲染引擎</strong> 又叫做 <strong>排版引擎</strong> 或 <strong>浏览器内核</strong></p>
+</blockquote>
 <ul>
-<li>在方法中使用时，this —&gt;  所有者对象</li>
-<li>单独使用时，  this —&gt;  全局对象</li>
-<li>在函数中使用时，this —&gt;  全局对象<br>  注意： 如果启用了严格模式（use strict） 那么this就变成了undefined</li>
-<li>在事件中使用时，this —&gt;  接收事件的元素<br>call 和 apply 可以改变this的指向，后面我们再说它</li>
+<li><strong>Chrome</strong>： Blink引擎（Webkit的一个分支）</li>
+<li><strong>Safari</strong>： Webkit引擎</li>
+<li><strong>FireFox</strong>： Gecko引擎</li>
+<li><strong>Opera</strong>： Blink引擎</li>
+<li><strong>InternetExplorer</strong>： Trident引擎</li>
+<li><strong>Microsoft Edge</strong>： EdgeHTML引擎（Trident的一个分支）</li>
 </ul>
 <blockquote>
-<p>在方法中</p>
+<p>主流渲染引擎的工作原理</p>
 </blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">var obj = &#123;</span><br><span class="line">    a: 1,</span><br><span class="line">    b: function ()&#123;</span><br><span class="line">        return this.a</span><br><span class="line">        // 这里的this是指向所有者对象也就是obj</span><br><span class="line">        // this.a === obj.a</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ol>
+<li>解析HTML构建的DOM树（Document Object Model，文档对象模型）</li>
+<li>构建渲染树，渲染树并不等同于DOM树，因为像 <strong><em>head 或 display：none</em></strong>这样的元素就没有必要放到渲染树里面。但是他们仍然在DOM树中。</li>
+<li>对渲染树进行布局，定位坐标和大小，确定是否换行，确定position，overflow，z-index等等，这个过程叫：<strong><em>“layout” 或 “reflow”</em></strong>。</li>
+<li>绘制渲染树，调用操作系统底层的API进行绘图操作。<br><a href="https://www.youtube.com/watch?v=ZTnlxlA5KGw" target="_blank" rel="noopener">浏览器reflow，layout过程</a></li>
+</ol>
+<h2 id="浏览器访问网站的过程"><a href="#浏览器访问网站的过程" class="headerlink" title="浏览器访问网站的过程"></a>浏览器访问网站的过程</h2><ol>
+<li>在浏览器地址栏中输入网址</li>
+<li>浏览器通过用户在地址栏中输入的URL构建HTTP请求报文<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">GET / HTTP/1.1</span><br><span class="line">Host: www.baidu.com</span><br><span class="line">Connection: keep-alive</span><br><span class="line">Cache-Control: max-age=0</span><br><span class="line">Upgrade-Insecure-Requests: 1</span><br><span class="line">User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.97 Safari/537.36</span><br><span class="line">Sec-Fetch-User: ?1</span><br><span class="line">Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3</span><br><span class="line">Sec-Fetch-Site: none</span><br><span class="line">Sec-Fetch-Mode: navigate</span><br><span class="line">Accept-Encoding: gzip, deflate, br</span><br><span class="line">Accept-Language: zh-CN,zh;q=0.9</span><br><span class="line">Cookie: BIDUPSID=F08DB5B2FD9E13D4B41996E638172B7E; PSTM=1573701135; BAIDUID=F08DB5B2FD9E13D4B19EAE477B7A6495:FG=1; BD_UPN=123253; BDORZ=B490B5EBF6F3CD402E515D22BCDA1598; H_PS_PSSID=1432_21114_30125_29567_29700_29221; H_PS_645EC=84a0DbiQzd2BHJhWsNQFFY6AzZdRfYqCefjKNfcjGAOJW8CxuHjm%2BQDhKZg; delPer=0; BD_CK_SAM=1; PSINO=5; BD_HOME=0GET / HTTP/1.1</span><br><span class="line">Host: www.baidu.com</span><br><span class="line">Connection: keep-alive</span><br><span class="line">Cache-Control: max-age=0</span><br><span class="line">Upgrade-Insecure-Requests: 1</span><br><span class="line">User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.97 Safari/537.36</span><br><span class="line">Sec-Fetch-User: ?1</span><br><span class="line">Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3</span><br><span class="line">Sec-Fetch-Site: none</span><br><span class="line">Sec-Fetch-Mode: navigate</span><br><span class="line">Accept-Encoding: gzip, deflate, br</span><br><span class="line">Accept-Language: zh-CN,zh;q=0.9</span><br><span class="line">Cookie: BIDUPSID=F08DB5B2FD9E13D4B41996E638172B7E; PSTM=1573701135; BAIDUID=F08DB5B2FD9E13D4B19EAE477B7A6495:FG=1; BD_UPN=123253; BDORZ=B490B5EBF6F3CD402E515D22BCDA1598; H_PS_PSSID=1432_21114_30125_29567_29700_29221; H_PS_645EC=84a0DbiQzd2BHJhWsNQFFY6AzZdRfYqCefjKNfcjGAOJW8CxuHjm%2BQDhKZg; delPer=0; BD_CK_SAM=1; PSINO=5; BD_HOME=0</span><br></pre></td></tr></table></figure></li>
+</ol>
 
-<blockquote>
-<p>单独使用时</p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var a = this;</span><br><span class="line">// this指向window</span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p>在函数中</p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">function Fun() &#123;</span><br><span class="line">    return this;</span><br><span class="line">    // 这里this是指向全局对象也就是window</span><br><span class="line">&#125;</span><br><span class="line">// 如果是在严格模式下就是不一样的情况</span><br><span class="line">&quot;use strict&quot;;</span><br><span class="line">funtion Fun() &#123;</span><br><span class="line">    return this;</span><br><span class="line">    // 返回的是未定义的 undefined</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p>在事件中</p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;button onclick=&quot;btn&quot;&gt;按钮&lt;/button&gt;</span><br><span class="line">function btn()&#123;</span><br><span class="line">    this.innerHTML = &apos;我不想叫按钮了~&apos;</span><br><span class="line">    // 这里的this是指向button这个元素的</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="call-和-apply"><a href="#call-和-apply" class="headerlink" title="call() 和 apply()"></a>call() 和 apply()</h2><p>首先他们的功能其实是一样的，不同点在于传参方式不一样。</p>
-<p>他们都可以改变this的指向，调用一个对象的一个方法，用另一个对象替换当前的对象。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">obj1.call(obj2, args1,args2, ... argsN)</span><br><span class="line">obj1.apply(obj2, [args1, args2, ... argsN])</span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p>就是让obj2 调用 obj1 的方法，后面是传的参数</p>
-</blockquote>
-<p>这里还有一个小技巧，可以通过apply去找出数组中的最大值最小值</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Math.max.apply(null, arr);  // 这就能找出arr数组中的最大值</span><br><span class="line">Math.min.apply(null, arr);  // 这就能找出arr数组中的最小值</span><br></pre></td></tr></table></figure>
     </div>
     
     <div class="post-footer">
@@ -251,15 +249,15 @@
 
 <div class="article-nav prev-next-wrap clearfix">
     
-        <a href="/2019/11/15/浏览器原理/" class="pre-post btn btn-default" title="浏览器原理">
+        <a href="/2020/03/21/更新一下下/" class="pre-post btn btn-default" title="更新一下下">
             <i class="fa fa-angle-left fa-fw"></i><span class="hidden-lg">上一篇</span>
-            <span class="hidden-xs">浏览器原理</span>
+            <span class="hidden-xs">更新一下下</span>
         </a>
     
     
-        <a href="/2019/06/19/正则验证/" class="next-post btn btn-default" title="JS基础之正则篇">
+        <a href="/2019/06/20/JS基础之this篇/" class="next-post btn btn-default" title="JS基础之this篇">
             <span class="hidden-lg">下一篇</span>
-            <span class="hidden-xs">JS基础之正则篇</span><i class="fa fa-angle-right fa-fw"></i>
+            <span class="hidden-xs">JS基础之this篇</span><i class="fa fa-angle-right fa-fw"></i>
         </a>
     
 </div>
@@ -302,7 +300,7 @@
     <div class="widget">
         <h3 class="title">文章目录</h3>
         
-            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#this指向"><span class="toc-text">this指向</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#call-和-apply"><span class="toc-text">call() 和 apply()</span></a></li></ol>
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#浏览器的组成"><span class="toc-text">浏览器的组成</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#主流渲染引擎介绍"><span class="toc-text">主流渲染引擎介绍</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#浏览器访问网站的过程"><span class="toc-text">浏览器访问网站的过程</span></a></li></ol>
         
     </div>
 </aside>
